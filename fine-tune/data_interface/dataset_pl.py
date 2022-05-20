@@ -57,7 +57,8 @@ class AMR2TextDataModule(pl.LightningDataModule):
         # print(f"{os.path.dirname(__file__)}/amrdata.py")
         # exit()
         datasets = load_dataset(
-            f"{os.path.dirname(__file__)}/data.py", data_files=data_files, cache_dir=self.cache_dir,
+        #    f"{os.path.dirname(__file__)}/data.py", data_files=data_files, cache_dir=self.cache_dir,
+             "json", data_files=data_files, cache_dir=self.cache_dir,
         )
         print("datasets:", datasets)
         column_names = datasets["train"].column_names
