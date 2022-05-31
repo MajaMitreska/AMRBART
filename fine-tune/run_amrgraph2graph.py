@@ -33,7 +33,7 @@ from pytorch_lightning import Trainer, seed_everything
 import pytorch_lightning.callbacks as plc
 from pytorch_lightning.loggers import TensorBoardLogger
 from model_interface.model_amrgraph2graph import AMRGraph2GraphModelModule
-from data_interface.dataset_pl import AMRGraph2Graph
+from data_interface.dataset_pl import AMRGraph2GraphDataModule
 from common.options import add_model_specific_args
 from common.callbacks import LoggingCallback, get_early_stopping_callback, get_checkpoint_callback
 from transformers import AutoConfig
@@ -88,7 +88,7 @@ def main(args):
         use_pointer_tokens=True,
         raw_graph=False,
     )
-    data_module = AMRGraph2Graph(amr_tokenizer, **vars(args))
+    data_module = AMRGraph2GraphDataModule(amr_tokenizer, **vars(args))
     data_module.setup()
     args.train_dataset_size = len(data_module.train_dataset)
 

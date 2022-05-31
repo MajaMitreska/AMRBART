@@ -14,7 +14,7 @@ from torch.utils.data.dataloader import DataLoader
 from common.utils import shift_tokens_right
 
 
-class AMRGraph2Graph(pl.LightningDataModule):
+class AMRGraph2GraphDataModule(pl.LightningDataModule):
     def __init__(
             self, tokenizer, **args,
     ):
